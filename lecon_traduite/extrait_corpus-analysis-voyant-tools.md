@@ -1,36 +1,36 @@
 ## Introduction
 
-In this lesson, you will learn how to organize a set of texts for research; that is, you will learn the basic steps of creating a 'corpus'. You will also learn the main metrics of quantitative text analysis. For this purpose, you will use [Voyant Tools](http://voyant-tools.org/),[^1] a web-based platform that does not require installation and works in any browser with an internet connection.
+Dans cette leçon, vous apprendrez à organiser un ensemble de textes pour de la recherche ; c'est-à-dire que vous allez apprendre les étapes basiques de la création d'un 'corpus'. Vous apprendrez également les métriques principales de l'analyse quantitative de texte. Pour cela, vous utiliserez [Voyant Tools](http://voyant-tools.org/),[^1] une plateforme Internet qui ne requiert aucune installation et qui fonctionne avec chaque navigateur Internet doté d'une connexion internet.
 
-This lesson is designed as a beginner-friendly introduction to corpus analysis and is part of a growing ecosystem of tools and methods in digital humanities. For a more advanced tool, see the _Programming Historian_ [lesson on corpus analysis with AntConc](/en/lessons/corpus-analysis-with-antconc). You may also be interested in other *Programming Historian* lessons on [text mining](/en/topics/text-mining), [natural language processing](/en/lessons/introduction-to-nlp-with-python), and [topic modeling](/en/lessons/topic-modeling-and-mallet).
+Cette leçon est conçue comme une introduction à l'analyse de corpus, adaptée pour les débutants, et elle fait partie d'un écosystème grandissant d'outils et de méthodes pour les humanités numériques. Pour un outil plus avancé, vous pouvez consulter la leçon Programming Historian sur [l'analyse de corpus avec AntConc](fr/lecons/analyse-corpus-antconc). Vous pouvez également être intéressé par d'autres leçons *Programming Historian* sur [l'exploration de texte](), le [traitement automatique des langues]() ou [*topic modeling*](/en/lessons/topic-modeling-and-mallet).
 
-### Prerequisites and Further Reading
+### Prérequis et lectures approfondies
 
-No prior experience with text analysis is required. However, for those who want to go deeper, we recommend the following resources:
+Aucune expérience préalable en analyse de texte n'est requise. Cependant, pour ceux qui veulent aller plus loin, nous recommandons les ressources suivantes :
 
-- [Voyant Tools Help Documentation](https://perma.cc/6CRX-9B9D)
-- [Hermeneuti.ca](https://perma.cc/93VW-WC8V), the companion site to the book *Hermeneutica: Computer-Assisted Interpretation in the Humanities* by Sinclair and Rockwell[^2]
+- [Documentation de Voyant Tools](https://perma.cc/6CRX-9B9D)
+- [Hermeneuti.ca](https://perma.cc/93VW-WC8V), le site d'accompagnement du livre *Hermeneutica: Computer-Assisted Interpretation in the Humanities* de Sinclair et Rockwell[^2]
 
-### Corpus Analysis
+### Analyse de corpus
 
-Corpus analysis is a type of [content analysis](https://perma.cc/Y8B2-RL89) that allows large-scale comparisons of a set of texts or a corpus.
+L'analyse de corpus est un type d'[analyse de contenu](https://perma.cc/Y8B2-RL89) qui permet la comparaison, à grande échelle, d'un ensemble de textes ou d'un corpus.
 
-Since the advent of computing, both computational linguists and [information retrieval](https://perma.cc/3F3M-3JV3) specialists have created and used software to notice patterns that are not evident to the naked eye, or to corroborate hypotheses they intuited when reading certain texts but required laborious, costly, and mechanical work. For example, to obtain patterns of increase and decline in usage of certain terms over a given period, it was necessary to hire people to manually review a text and note how many times the sought term appeared. Early on, observing the counting capabilities of computers, these specialists promptly wrote programs to facilitate the task of creating [frequency lists](https://perma.cc/F472-XM7K) or [concordance tables](https://perma.cc/AYP4-PVKR). The program you will learn to use in this lesson fits into this historical context.
+Depuis l'avènement de l'informatique, les linguistes informatiques et les spécialistes dans la [recherche d'informations](https://perma.cc/3F3M-3JV3) ont créé et utilisé des logiciels pour repérer des motifs qui ne se distinguent pas à l'oeil nu, ou pour corroborer les hypothèses pressenties en lisant certains textes mais dont la réponse nécessitait un travail laborieux, coûteux et répétitif. Par exemple, pour obtenir des motifs dans l'accroissement et le déclin de l'usage de certains termes sur une période donnée, il était nécessaire d'engager des gens pour relire manuellement un texte et noter toutes les fois où le terme choisi apparaissait. Très tôt, en observant les capacités de calcul des ordinateurs, ces spécialistes ont rapidement écrit des programmes informatiques pour faciliter les tâches de création de [listes de fréquences](https://perma.cc/F472-XM7K) ou de [tables de concordances](https://perma.cc/AYP4-PVKR). Le programme que vous apprendrez à utiliser avec cette leçon s'inscrit dans ce contexte historique.
 
-### What You Will Learn in This Lesson
+### Ce que vous apprendrez dans cette leçon
 
-Voyant Tools is a web-based tool that does not require the installation of any specialized software as it works on any computer with an internet connection.
+Voyant Tools est un outil du web qui ne requiert l'installation d'aucun logiciel spécialisé, puisqu'il fonctionne sur tout ordinateur muni d'une connexion Internet.
 
-As stated in [Corpus Analysis with Antconc](/en/lessons/corpus-analysis-with-antconc), this tool is a good entry point to more complex methods.
+Comme cela a été mentionné dans l'[Analyse de corpus avec AntConc](fr/lecons/analyse-corpus-antconc), cet outil est un bon point d'entrée vers des méthodes plus complexes. 
 
-By the end of this lesson, you will be able to:
+À la fin de cette leçon, vous serez capable :
 
-- assemble a plain text corpus
-- load your corpus into Voyant Tools
-- understand and apply different corpus segmentation techniques
-- identify basic characteristics of your text set:
-  - length of the uploaded documents
-  - lexical density (called 'vocabulary density' on the platform)
-  - average words per sentence
-- read and understand different statistics about words: absolute frequency, normalized frequency, statistical skewness, and distinctive words
-- search for keywords in context and export data and visualizations in different formats (CSV, PNG, HTML)
+- d'assembler un corpus de texte brut
+- de charger votre corpus dans Voyant Tools
+- de comprendre et d'appliquer diverses techniques de segmentation selon le corpus
+- d'identifier les caractéristiques de base de votre ensemble de texte :
+  - la longueur des documents chargés
+  - la densité lexicale (appelé "densité du vocabulaire" sur l'interface)
+  - du nombre moyen de mots par phrase
+- de lire et comprendre les différentes statistiques à propos des mots : fréquence absolue, fréquence normalisée, asymétrie statistique and mots distincts
+- de chercher des mots-clés en prenant en compte le contexte et d'exporter des données et des visualisations dans des formats variés (CSV, PNG, HTML)
