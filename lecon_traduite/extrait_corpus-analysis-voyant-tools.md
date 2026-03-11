@@ -1,3 +1,5 @@
+{% include toc.html %}
+
 ## Introduction
 
 Dans cette leçon, vous apprendrez à organiser un ensemble de textes pour de la recherche ; c'est-à-dire que vous allez apprendre les étapes basiques de la création d'un 'corpus'. Vous apprendrez également les métriques principales de l'analyse quantitative de texte. Pour cela, vous utiliserez [Voyant Tools](http://voyant-tools.org/),[^1] une plateforme Internet qui ne requiert aucune installation et qui fonctionne avec chaque navigateur Internet doté d'une connexion internet.
@@ -34,3 +36,28 @@ Comme cela a été mentionné dans l'[Analyse de corpus avec AntConc](fr/lecons/
   - du nombre moyen de mots par phrase
 - de lire et comprendre les différentes statistiques à propos des mots : fréquence absolue, fréquence normalisée, asymétrie statistique and mots distincts
 - de chercher des mots-clés en prenant en compte le contexte et d'exporter des données et des visualisations dans des formats variés (CSV, PNG, HTML)
+
+## Créer un corpus de texte brut
+
+### 1. Choisir vos textes
+### 2. Le copier dans un éditeur de texte
+### 3. Sauvegarder le fichier
+## Charger le corpus
+## Explorer le corpus
+## Résumé du document : les caractéristiques basiques de votre ensemble de textes
+### Nombre de textes, de mots et de mots uniques
+### Longueur de document
+### Densité du vocabulaire
+### Mots par phrase
+## Cirrus et résumé : filtres de fréquences et de mots-vide
+### Fréquences non filtrées
+### Mots-vide
+### Fréquences avec le filtre de mots-vide
+## Termes
+### Fréquences normalisées
+### Asymétrie statistiques
+### Mots différenciés
+## Mots dans leur contexte
+## Exporter les tables
+## Réponses des activités
+## Notes de bas de page
